@@ -1,0 +1,12 @@
+##
+## When plotting, to include a greek symbol
+##
+
+expression(lambda)
+
+##
+## Plotting a curved line in R
+##
+
+curve()
+
