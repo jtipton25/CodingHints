@@ -1,0 +1,36 @@
+;; This buffer is for notes you don't want to save, and for Lisp evaluation.
+;; If you want to create a file, visit that file with C-x C-f,
+;; then enter the text in that file's own buffer.
+
+##
+## This is a short list of git commands and hints
+##
+
+##
+## To Create a Repository
+##
+
+mkdir ~/Hello-World <- makes a directory named 'Hello-World'
+
+cd ~/Hello-World <- changes the working directory
+
+git init <- Sets up the Git files
+
+touch README <- Creates a README file 
+
+##
+## To commit files (README)
+##
+
+git add README <- adds the README file to the list of files to be commited
+
+git commit -m 'first commit' <- commits the files with the message 'first commit'
+
+##
+## To push the commit (README)
+##
+
+git remote add origin htps://github.com/Jtipton25/Hello-World.git <- Creates a remote named 'origin' pointing at the repository 'Hello-World'
+
+git push origin master <- sends the commits in the 'master' branch
+
