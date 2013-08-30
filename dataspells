@@ -1,4 +1,42 @@
 ##
+## Easy set-up for snowfall
+##
+
+library(parallel)
+library(snowfall)
+
+cps=detectCores()
+sfInit(parallel=TRUE, cpus=cps)
+
+sfExportAll()
+
+##
+## joining variables and strings
+##
+
+paste("string",i)
+
+##
+## Reading CSV's
+##
+
+read.csv("file.csv, stringsAsFactors=FALSE) ## doesn't convert strings to factors when loading csv's
+
+write.csv(data, file="file.csv", row.names=FALSE) ## doesn't add the rownames when writing a csv.
+
+##
+## Update packages
+##
+
+update.packages()
+
+##
+## Quick preview
+##
+
+head() and tail() ##show the first and last parts of a dataframe, vector, matrix, etc.
+
+##
 ## When plotting, to include a greek symbol
 ##
 
