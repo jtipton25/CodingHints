@@ -20,7 +20,7 @@ paste("string",i)
 ## Reading CSV's
 ##
 
-read.csv("file.csv, stringsAsFactors=FALSE) ## doesn't convert strings to factors when loading csv's
+read.csv("file.csv", stringsAsFactors=FALSE) ## doesn't convert strings to factors when loading csv's
 
 write.csv(data, file="file.csv", row.names=FALSE) ## doesn't add the rownames when writing a csv.
 
