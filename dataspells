@@ -48,3 +48,8 @@ expression(lambda)
 
 curve()
 
+##
+## Random Forests
+##
+
+randomForest(y~x)
