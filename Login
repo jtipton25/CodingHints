@@ -1,0 +1,12 @@
+##
+## Remote Login
+##
+
+ssh Tips@192.168.1.100
+
+##
+## Hard Drive Directory
+##
+
+cd /Volumes
+cd /Volumes/Data\ Drive\ 1
