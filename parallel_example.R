@@ -14,7 +14,7 @@ library(rlecuyer) # loads the random number generator needed for multi-core proc
 ## Setting up the snowfall environment
 ##
 
-cps=detechCores() 
+cps=detectCores() 
 # detects the number of cores on the computer
 
 
@@ -30,7 +30,7 @@ sfClusterSetupRNG()
 # Sets up the Parallel random number generator
 
 	
-sfLibrary()
+#sfLibrary()
 # Sets up the cluster libraries if needed. For example, if the Library 'spBayes' is not exported
 # to the cluster, use sfExport('spBayes')
 
@@ -42,10 +42,10 @@ sfLibrary()
 ##
 
 #Examples
-# find the mean of 10000 normal mean 0 variance 1 random variables and do this for 100000 iterations...  
+# find the mean of 1000 normal mean 0 variance 1 random variables and do this for 100000 iterations...  
 # Setup the simulation
-n=100000 
-samp=10000
+n=100000
+samp=1000
 silly_calculation=c()
 
 
@@ -59,7 +59,7 @@ for(i in 1:n)
 	silly_calculation[i] = mean(rnorm(samp,0,1))
 }
 stop.time.loop = Sys.time()
-time.taken.loop = start.time.loop - stop.time.loop 
+time.taken.loop = stop.time.loop - start.time.loop 
 
 
 
@@ -67,7 +67,7 @@ time.taken.loop = start.time.loop - stop.time.loop
 ## write as an apply command
 ##
 
-calc.mean = funcition(i)
+calc.mean = function(i)
 {
 	mean(rnorm(samp,0,1))
 }
@@ -75,17 +75,18 @@ calc.mean = funcition(i)
 start.time.sapply = Sys.time()
 silly_calculation.apply = sapply(1:n,calc.mean)
 stop.time.sapply = Sys.time()
-time.taken.sapply = start.time.sapply - stop.time.sapply
+time.taken.sapply = stop.time.sapply - start.time.sapply
 
 ##
 ## write as a snowfall apply command
 ##
 
 start.time.sfSapply = Sys.time()
-sfExport('calc.mean')
+sfExport('calc.mean','samp')
+#sfExportAll()
 silly_calculation.sf = sfSapply(1:n,calc.mean)
 stop.time.sfSapply = Sys.time()
-time.take.sfSapply = start.time.sfSapply - stop.time.sfSapply
+time.taken.sfSapply = stop.time.sfSapply - start.time.sfSapply
 
 
 time.taken.loop
@@ -97,3 +98,5 @@ time.taken.sfSapply
 	
 	## ends snowfall session
 	sfStop()
+
+sink("snowfall.txt", append=FALSE, split=FALSE)
