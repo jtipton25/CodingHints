@@ -1,0 +1,72 @@
+;; This buffer is for notes you don't want to save, and for Lisp evaluation.
+;; If you want to create a file, visit that file with C-x C-f,
+;; then enter the text in that file's own buffer.
+##
+## username: jtipton
+##
+## pwd: same as login for stats computers... <- for me only
+##
+
+
+##
+## Tutorial for logging into the CSU CRAY Supercomputer
+##
+
+##
+## hostname of the CRAY: cray2.colostate.edu
+##
+
+##
+## IP address of the CRAY: 129.82.103.183
+##
+
+## 
+## To login to the CRAY with ssh in a terminal window
+##
+
+ssh username@cray2.colostate.edu # where username is your CRAY username
+
+##
+## To transfer files to/from the CRAY with sftp 
+##
+
+sftp username@cray2.colostate.edu
+
+##
+## On a windows machine you can use PuTTy or FileZilla
+##
+## PuTTy is available at: http://www.chiark.greenend.org.uk/~sgtatham/putty/
+##
+## FileZilla is available at: http://filezilla-project.org/
+##
+
+##
+## The CRAY is organized into modules that configure the shell for a particular
+## application. The advantage of modules is that you are not required to
+## specify explicit paths for different executable versions or to set the
+## $MANPATH and other environment variables manually.
+## 
+
+module list  # view the module files currently laoded in your shell environment
+
+module avail  # see a list of all module files on the CRAY
+
+module load modulefile  # to load a modulefile
+
+module unload modulefile  # unloads a loaded modulefile
+
+module swap modulefile1 modulefile2 # to swap modulefile1 for modulefile2
+                                    #e.g. module swap PrgEnv-cray PrgEnv-gnu
+module show modulefile  # see the contents of a particular module
+
+module help modulefile  # to see a description of the modulefile
+
+##
+## Interactive Jobs
+##
+
+# All parallel compute jobs must be run in the "lustrefs" directory
+
+# Small jobs can be run on the Interactive Nodes to test code, etc.
+
+# Large parallel jobs should be run on the Batch Compute Nodes 
