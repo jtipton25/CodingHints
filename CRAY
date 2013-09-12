@@ -4,9 +4,9 @@
 ## pwd: same as login for stats computers... <- for me only
 ##
 
-##
-## exit to log-off the ssh
-##
+put filepath/filename  # copy from local directory to sftp directory
+exit  # to log-off the ssh
+
 
 ##
 ## Tutorial for logging into the CSU CRAY Supercomputer
@@ -39,6 +39,22 @@ sftp username@cray2.colostate.edu
 ##
 ## FileZilla is available at: http://filezilla-project.org/
 ##
+
+##
+## To create the bash.profile on the CRAY
+##
+## Type
+
+vi bash.profile
+## in the editor type: <- use the most recent version on R on the CRAY, check this
+## using ls/apps
+
+export PATH=/apps/R-2.14.14/bin:$PATH
+export TMP=$HOME/lustrefs/tmp/
+## Press the escape key and type
+
+:wq
+## then press the enter key
 
 ##
 ## The CRAY is organized into modules that configure the shell for a particular
