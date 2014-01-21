@@ -1,0 +1,121 @@
+$OS.type
+[1] "unix"
+
+$file.sep
+[1] "/"
+
+$dynlib.ext
+[1] ".so"
+
+$GUI
+[1] "AQUA"
+
+$endian
+[1] "little"
+
+$pkgType
+[1] "mac.binary"
+
+$path.sep
+[1] ":"
+
+$r_arch
+[1] ""
+
+$double.eps
+[1] 2.220446e-16
+
+$double.neg.eps
+[1] 1.110223e-16
+
+$double.xmin
+[1] 2.225074e-308
+
+$double.xmax
+[1] 1.797693e+308
+
+$double.base
+[1] 2
+
+$double.digits
+[1] 53
+
+$double.rounding
+[1] 5
+
+$double.guard
+[1] 0
+
+$double.ulp.digits
+[1] -52
+
+$double.neg.ulp.digits
+[1] -53
+
+$double.exponent
+[1] 11
+
+$double.min.exp
+[1] -1022
+
+$double.max.exp
+[1] 1024
+
+$integer.max
+[1] 2147483647
+
+$sizeof.long
+[1] 8
+
+$sizeof.longlong
+[1] 8
+
+$sizeof.longdouble
+[1] 16
+
+$sizeof.pointer
+[1] 8
+
+               _                           
+platform       x86_64-apple-darwin10.8.0   
+arch           x86_64                      
+os             darwin10.8.0                
+system         x86_64, darwin10.8.0        
+status                                     
+major          3                           
+minor          0.1                         
+year           2013                        
+month          05                          
+day            16                          
+svn rev        62743                       
+language       R                           
+version.string R version 3.0.1 (2013-05-16)
+nickname       Good Sport                  
+                                                                                           sysname 
+                                                                                          "Darwin" 
+                                                                                           release 
+                                                                                          "12.4.0" 
+                                                                                           version 
+"Darwin Kernel Version 12.4.0: Wed May  1 17:57:12 PDT 2013; root:xnu-2050.24.15~1/RELEASE_X86_64" 
+                                                                                          nodename 
+                                                                                 "Macintosh.local" 
+                                                                                           machine 
+                                                                                          "x86_64" 
+                                                                                             login 
+                                                                                            "Tips" 
+                                                                                              user 
+                                                                                            "Tips" 
+                                                                                    effective_user 
+                                                                                            "Tips" 
+R Version:  R version 3.0.1 (2013-05-16) 
+
+
+The downloaded binary packages are in
+	/var/folders/ps/5jxqs5bs4vx1kbq93kff3yy40000gn/T//RtmpAQ6k0w/downloaded_packages
+
+The downloaded binary packages are in
+	/var/folders/ps/5jxqs5bs4vx1kbq93kff3yy40000gn/T//RtmpAQ6k0w/downloaded_packages
+Library cmprsk loaded.
+[1] "RNGstream"
+Time difference of 18.38992 secs
+[1] -0.9132058
