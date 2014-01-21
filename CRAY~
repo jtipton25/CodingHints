@@ -45,7 +45,7 @@ sftp username@cray2.colostate.edu
 ##
 ## Type
 
-vi .bash_profile
+vi bash.profile
 ## in the editor type: <- use the most recent version on R on the CRAY, check this
 ## using ls/apps
 

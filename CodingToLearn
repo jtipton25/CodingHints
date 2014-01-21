@@ -2,8 +2,47 @@
 ## To call unix commands from R
 ##
 
-system("R CMD BATCH" ...) <- calls the unix terminal to run commands. Can use a loop of these commands to run multiple scripts, maybe this results in a natual parallelization???
+system("R CMD BATCH" ...) # <- calls the unix terminal to run commands. Can use a loop of these commands to run multiple scripts, maybe this results in a natual parallelization???
 
 ##
-## 
+## Moving around in directories 
 ##
+
+cd /file/path/name # <- changes file path
+
+pwd # <- displays path 
+
+ls # <- displays content in current directory
+
+cd # <- moves to the home directory
+
+cd ~ # <- moves to the home directory (~ represents the home directory)
+
+cd - # <- returns to the previous directory
+
+##
+## Moving and renaming files and directories
+##
+
+mv /file/path/filename /new/file/path # <- move file from first path to second path
+
+mv oldfilename newfilename # <- renames the file oldfilename to newfilename
+
+mv oldfilename new/file/path/newfilename # <- moves the file to the new file path and renames the file newfilename
+
+##
+## Copying files
+##
+
+cp oldfilename newfilename # <- creates a copy of the file with a name newfilename
+
+cp -r DirectoryName NewDirectoryName # <- copies the directory DirectoryName to the directory NewDirectoryName
+
+##
+## Removing Files
+##
+
+rm filename # <- removes filename !! File is permanently deleted !!
+
+rm filename1 filename2 # <- removes both filenames !! File is permanently deleted !!
+
