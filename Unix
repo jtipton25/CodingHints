@@ -3,3 +3,11 @@
 ##
 
 nohup R CMD BATCH file.R out.txt &
+
+##
+## To clear the terminal window
+##
+
+reset
+clear
+tput reset
