@@ -1,0 +1,5 @@
+##
+## To run a batch command without having to stay logged in
+##
+
+nohup R CMD BATCH file.R out.txt &

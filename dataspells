@@ -20,7 +20,7 @@ paste("string",i)
 ## Reading CSV's
 ##
 
-read.csv("file.csv", stringsAsFactors=FALSE) ## doesn't convert strings to factors when loading csv's
+read.csv("file.csv, stringsAsFactors=FALSE) ## doesn't convert strings to factors when loading csv's
 
 write.csv(data, file="file.csv", row.names=FALSE) ## doesn't add the rownames when writing a csv.
 
@@ -35,21 +35,3 @@ update.packages()
 ##
 
 head() and tail() ##show the first and last parts of a dataframe, vector, matrix, etc.
-
-##
-## When plotting, to include a greek symbol
-##
-
-expression(lambda)
-
-##
-## Plotting a curved line in R
-##
-
-curve()
-
-##
-## Random Forests
-##
-
-randomForest(y~x)
