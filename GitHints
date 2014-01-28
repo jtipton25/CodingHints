@@ -22,7 +22,7 @@ touch README <- Creates a README file
 ## To commit files (README)
 ##
 
-git add README <- adds the README file to the list of files to be commited
+git add README <- adds the README file to the list of files to be committed
 
 git commit -m 'first commit' <- commits the files with the message 'first commit'
 
