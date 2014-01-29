@@ -1,0 +1,130 @@
+#####
+#####  Last Updated: 20130702
+#####  This is to install OpenBLAS instead of the default BLAS (which is super slow) on Apple Computers
+#####
+#####  Backstory:
+#####
+#####  At some point, Apple's veclib was really fast, but then they quit updating it (or there were bugs
+#####  or something).  Switched to GotoBLAS and that was fast again.  Then that developer took another
+#####  job and GotoBLAS broke when R updated to 3.0.  So, switched to a version of ATLAS on MacPro and 
+#####  it helped, but it wasn't as fast as GotoBLAS.     
+#####
+#####  Recently, a new BLAS called openBLAS has revived GotoBLAS and it's relatively easy to install 
+#####  using either homebrew (Devin prefers this, see way below) or just 'make' with Xcode compilers. 
+#####
+#####
+
+1.)  Install latest version of Xcode (from Apple App Store).  Mine is: 4.6.3.  After Xcode is installed, go to Preferences, Downloads, then Components.  Install Command Line Tools.
+
+2.)  Install latest version of R (>3.0). 
+
+3.)  Download openBLAS (unzip):  
+
+https://github.com/xianyi/OpenBLAS/wiki/download
+ - source code
+
+4.)  Change directory to this unzipped folder: xianyi-OpenBLAS-835293c
+
+5.)  Type 'make' in terminal shell
+
+5.1/2) Type make PREFIX=~/source/OpenBLAS install 
+
+6.)  Copy openBLAS to R library folders that contains other BLAS versions"  
+
+cp libopenblas_penrynp-r0.2.8.dylib /Library/Frameworks/R.framework/Resources/lib/
+
+7.) Change to R library directory:
+
+cd /Library/Frameworks/R.framework/Resources/lib/
+
+8.)  Use dynamic link to tell R to use openBLAS:
+
+ln -sf libopenblas_penrynp-r0.2.8.dylib libRblas.dylib 
+
+9.)  Start R session
+
+10.)  Run benchmark script:
+
+source("http://r.research.att.com/benchmarks/R-benchmark-25.R")
+
+
+#####
+#####  Devin's Install Instructions
+#####  (no need to run if the above works)
+#####
+
+Just in case, probably best to do this in an admin account.
+
+1. Check your R linear algebra speed with
+
+source("http://r.research.att.com/benchmarks/R-benchmark-25.R")
+
+(this is run in R)
+
+
+
+2. If Homebrew is not installed, install it. 
+
+ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+
+then edit /etc/paths so that /usr/local/bin is first, followed by /usr/local/sbin
+
+
+
+3. If you have gfortran 4.4 or less, install a new gfortran (or why not update, anyway?).
+
+brew install gfortran
+
+This is fine for use with R because R is hard coded to use gfortran 4.2 that comes with the R tools.
+
+
+
+4. Close terminal (or open another) and check
+
+gfortran --version
+
+should read:
+
+GNU Fortran (GCC) 4.8.1
+
+Copyright (C) 2013 Free Software Foundation, Inc.
+
+
+
+GNU Fortran comes with NO WARRANTY, to the extent permitted by law.
+
+You may redistribute copies of GNU Fortran
+
+under the terms of the GNU General Public License.
+
+For more information about these matters, see the file named COPYING
+
+
+
+5. Tap the science collection software:
+
+brew tap homebrew/science
+
+
+
+6. Install openblas
+
+brew install openblas
+
+
+
+7. Link R to openblas:
+
+cd /Library/Frameworks/R.framework/Libraries
+
+rm libRblas.dylib
+
+ln -s /usr/local/Cellar/openblas/0.2.6/lib/libopenblas.dylib libRblas.dylib
+
+
+
+8. Check the R speed:
+
+source("http://r.research.att.com/benchmarks/R-benchmark-25.R")
+
+Hopefully, if everything worked, it's way faster. I'm at about 14 sec. on an old macbook pro

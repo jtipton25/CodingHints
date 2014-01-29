@@ -1,0 +1,109 @@
+##
+## from http://dirk.eddelbuettel.com/blog/2011/07/14/#rcpp_gibbs_example
+##
+
+## consider gibbs sampling from the bivariate distribution
+##
+## f(x, y) = k * x^2 exp( - x * y^2 - y^2 + 2 * y - 4 * x)
+##
+## where the conditional distributions (full conditionals) are
+##
+## f(x|y) = (x^2) * exp( - x * (4 + y^2)) ## a gamma density kernel
+## f(y|x) = exp( - 1 / 2 * 2 * (x + 1) * (y^2 - 2 * y / (x + 1)) ## a gaussian kernel
+
+##
+## Gibbs sampler in R
+##
+
+Rgibbs <- function(N,thin) {
+    mat <- matrix(0,ncol=2,nrow=N)
+    x <- 0
+    y <- 0
+    for (i in 1:N) {
+        for (j in 1:thin) {
+            x <- rgamma(1,3,y*y+4)
+            y <- rnorm(1,1/(x+1),1/sqrt(2*(x+1)))
+        }
+        mat[i,] <- c(x,y)
+    }
+    mat
+}
+
+##
+## using the R bytecode compilier
+##
+
+RCgibbs <- cmpfun(Rgibbs)
+
+##
+## Using Rcpp and inline packages
+##
+
+## Now for the Rcpp version -- Notice how easy it is to code up!
+gibbscode <- '
+
+  using namespace Rcpp;   // inline does that for us already
+
+  // n and thin are SEXPs which the Rcpp::as function maps to C++ vars
+  int N   = as<int>(n);
+  int thn = as<int>(thin);
+
+  int i,j;
+  NumericMatrix mat(N, 2);
+
+  RNGScope scope;         // Initialize Random number generator
+
+  // The rest of the code follows the R version
+  double x=0, y=0;
+
+  for (i=0; i<N; i++) {
+    for (j=0; j<thn; j++) {
+      x = ::Rf_rgamma(3.0,1.0/(y*y+4));
+      y = ::Rf_rnorm(1.0/(x+1),1.0/sqrt(2*x+2));
+    }
+    mat(i,0) = x;
+    mat(i,1) = y;
+  }
+
+  return mat;             // Return to R
+'
+# Compile and Load
+RcppGibbs <- cxxfunction(signature(n="int", thin = "int"),
+                         gibbscode, plugin="Rcpp")
+
+##
+## Using GNU GSL
+##
+
+gslgibbsincl <- '
+  #include <gsl/gsl_rng.h>
+  #include <gsl/gsl_randist.h>
+
+  using namespace Rcpp;  // just to be explicit
+'
+
+gslgibbscode <- '
+  int N = as<int>(ns);
+  int thin = as<int>(thns);
+  int i, j;
+  gsl_rng *r = gsl_rng_alloc(gsl_rng_mt19937);
+  double x=0, y=0;
+  NumericMatrix mat(N, 2);
+  for (i=0; i<N; i++) {
+    for (j=0; j<thin; j++) {
+      x = gsl_ran_gamma(r,3.0,1.0/(y*y+4));
+      y = 1.0/(x+1)+gsl_ran_gaussian(r,1.0/sqrt(2*x+2));
+    }
+    mat(i,0) = x;
+    mat(i,1) = y;
+  }
+  gsl_rng_free(r);
+
+  return mat;           // Return to R
+'
+
+## Compile and Load
+GSLGibbs <- cxxfunction(signature(ns="int", thns = "int"),
+                        body=gslgibbscode, includes=gslgibbsincl,
+                        plugin="RcppGSL")
+
