@@ -34,3 +34,8 @@ git remote add origin htps://github.com/Jtipton25/Hello-World.git <- Creates a r
 
 git push origin master <- sends the commits in the 'master' branch
 
+##
+## To see the status of files that need to be updated
+##
+
+git status
