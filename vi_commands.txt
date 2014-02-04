@@ -1,0 +1,65 @@
+####
+#### vi commands
+####
+
+####
+#### Starting and Quiting:
+####
+
+vi temp.txt		# in unix shell prompt, starts vi editing file called 'temp.txt'
+
+:x			# once in vi this does quit and save 
+
+####
+#### Modes:  
+####
+
+i			# once in vi, 'i' switches to insert mode where you can type.
+esc			# to get out of insert mode (back to movement mode)
+:			# to get into command mode (from movement mode)  
+esc			# to get out of command mode (back to movement mode)
+
+####
+####  Movement Mode 
+####
+
+h 			#  move left
+l 			#  move right
+k 			#  move up
+j 			#  move down 
+
+w 			#  move right one word 
+b 			#  move back one word 
+
+x 			#  delete character
+dw 			#  delete word
+dd 			#  delete line (note that lines continue unless you put insert a carriage return) 
+
+yy			#  yank current line (i.e., copy)
+p			#  put yanked line(s) at cursor
+3yy			#  yank 3 lines
+
+u			#  undo last modification 
+cntr r			#  redo undo (this one is a bit mysterious)
+
+
+####
+####  Command Mode 
+####
+
+:q			#  quit without saving
+:x 			#  quit and save
+
+:10			#  goto line 10 of document (remember long lines wrap visually)
+:/words here		#  find 'words here' in document (then use 'n' to go forward each word)
+
+:set spell		# turn on VI spell checker (use: ']s' forward word, '[s' back word, 'z=' suggestions).
+:set nospell		# turn off VI spell checker
+
+:!command		# issue shell 'command' from within vi
+:%s/\r/\r/g		# replace all ^M characters (usually from emacs) with true carriage returns 
+:1,$s/^.\{5\}//		# delete first 5 characters on each line
+:%s/---/NA/g		# replace all "---" with NA on every line
+:!wc %			# word count of current document
+
+
