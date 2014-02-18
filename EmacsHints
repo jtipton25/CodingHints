@@ -14,6 +14,8 @@
 
 Terminal Dropdown -> Preferences -> Settings -> Keyboard -> check 'use option as meta' 
 
+C-g ## abort command
+
 ##
 ## Opening, saving, and closing files
 ##
@@ -23,6 +25,13 @@ C-x C-s			## Save a File
 C-x C-c			## Save and quit 
 C-x C-w			## Save as a new file
 C-x C-f			## Find a file
+
+## Switch between buffers
+C-x arrow
+C-x b
+
+## List open buffers
+C-x C-b
 
 ##
 ## Basic Text editing 
