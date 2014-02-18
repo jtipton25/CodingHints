@@ -6,15 +6,13 @@
 ## Emacs hints and commands
 ##
 
+## C- means Control- and M- means Meta-(Option Key) 
+
 ##
 ## Resetting the meta key on Mac OS from Esc to Option in Terminal
 ##
 
-Terminal Dropdown -> Preferences -> Settings -> Keyboard -> check 'use option as meta' box 
-
-##
-## C- means Control- and M- means Meta-(Option Key) 
-##
+Terminal Dropdown -> Preferences -> Settings -> Keyboard -> check 'use option as meta' 
 
 C-g ## abort command
 
@@ -22,20 +20,11 @@ C-g ## abort command
 ## Opening, saving, and closing files
 ##
 
-## Open files from terminal
-emacs filename
-
-## Save a File
-C-x C-s
-
-## Save and quit 
-C-x C-c
-
-## Save as a new file
-C-x C-w
-
-## Find a file
-C-x C-f
+emacs filename		## Open filename from terminal in an emacs editor
+C-x C-s			## Save a File
+C-x C-c			## Save and quit 
+C-x C-w			## Save as a new file
+C-x C-f			## Find a file
 
 ## Switch between buffers
 C-x arrow
@@ -48,67 +37,38 @@ C-x C-b
 ## Basic Text editing 
 ##
 
-## Delete a word
-M-d
-
-## Delete a line and copy (kill)
-C-k
-
-## Put deleted line in document - paste (yank)
-C-y
-
-## Undo
-C-_
-
-## Find - replace ## can't seem to make this work...
-M-% (remember the shift key)
+M-d			## Delete a word
+C-k			## Delete a line and copy (kill)
+C-y			## Put deleted line in document - paste (yank)
+C-_			## Undo
+M-% (shift key)		## Find - replace 
+M-y 	   		## cycle to next item in kill ring (how cool is the term 'kill ring'?!)
+C-x r k 		## rectangular kill
+C-x-r y  		## rectangular yank (rectangular kill ring can only have one item, so be careful)
+M-q  			## auto fill
 
 ##
 ## Moving through the document
 ##
 
-## Move forward one character
-C-f
-
-## Move backward one character
-C-b
-
-## Move down a line
-C-n
-
-## Move up a line
-C-p
-
-## Move to the beginning of the line
-C-a
-
-## Move to the end of a line
-C-e 
-
-## Move down a page
-C-v
-
-## Move up a page
-M-v
-
-## Recenter the cursor in the center of the page
-C-l
+C-f			## Move forward one character
+C-b			## Move backward one character
+C-n			## Move down a line
+C-p			## Move up a line
+C-a			## Move to the beginning of the line
+C-e 			## Move to the end of a line
+C-v			## Move down a page
+M-v			## Move up a page
+C-l			## Recenter the cursor in the center of the page
 
 ##
 ## Advanced commands
 ##
-
-## Terminal command
-M-! (remember the shift)
-
-## reduce screen to one window
-C-x 1
-
-## split the screen horizontally
-C-x 2
-
-## split the screen verticall
-C-x 3
-
-## switch between windows
-C-x o (not zero)
+	
+M-! (shift)		## Terminal command
+C-x 1			## reduce screen to one window
+C-x 2			## split the screen horizontally
+C-x 3			## split the screen verticall
+C-x o (not zero)	## switch between windows
+C-x b			## change buffers
+C-c C-c  		## compile .tex document
