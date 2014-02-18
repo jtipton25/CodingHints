@@ -51,3 +51,9 @@ ls -1 <- list one file per line
 ##
 
 command >filename <- writes the output of command in filename
+
+##
+## creating a tar archive with gzip compression
+##
+
+tar -cvzf file.tar.gz files
