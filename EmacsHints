@@ -16,6 +16,8 @@ Terminal Dropdown -> Preferences -> Settings -> Keyboard -> check 'use option as
 ## C- means Control- and M- means Meta-(Option Key) 
 ##
 
+C-g ## abort command
+
 ##
 ## Opening, saving, and closing files
 ##
@@ -34,6 +36,13 @@ C-x C-w
 
 ## Find a file
 C-x C-f
+
+## Switch between buffers
+C-x arrow
+C-x b
+
+## List open buffers
+C-x C-b
 
 ##
 ## Basic Text editing 
