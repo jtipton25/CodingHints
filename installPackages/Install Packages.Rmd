@@ -1,0 +1,39 @@
+# Installing R packages
+========================================================
+
+======
+## Package rgdal
+
+The usual install.packages(“rgdal”) won’t work.
+
+1. Download the GDAL OS X install from kyngchaos
+- http://www.kyngchaos.com/software/frameworks
+- http://www.kyngchaos.com/files/software/unixport/GDAL_Complete-1.10.dmg
+- Install as per usual OS X install system
+- Fire up the Terminal, then emacs (or vi[m]) the .bash_login file
+- Modify the PATH environment so that it reads:
+export PATH=”/Library/Frameworks/GDAL.framework/Programs:$PATH”
+
+2. Download and install proj4 from source
+- http://trac.osgeo.org/proj/wiki/WikiStart#Download
+- Download source code version proj-4.8.0.tar.gz (or more recent update)
+- Fire up the Terminal
+> cd ~/Downloads/
+> tar -xzvf proj-4.8.0.tar.gz
+> cd proj-4.8.0
+> ./configure
+> make && make test
+> sudo make install
+[ should install to /usr/local/lib by default]
+
+3. Download and install rgdal from source
+- http://cran.r-project.org/web/packages/rgdal/index.html <- most recent update
+- Fire up the Terminal
+> cd ~/Downloads/
+> sudo R CMD INSTALL –configure-args=’–with-proj-include=/usr/local/lib’ rgdal_0.8-16.tar.gz
+
+```{r}
+library(rgdal)
+```
+
+
