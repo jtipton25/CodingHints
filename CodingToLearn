@@ -2,7 +2,7 @@
 ## To call unix commands from R
 ##
 
-system("R CMD BATCH" ...) # <- calls the unix terminal to run commands. Can use a loop of these commands to run multiple scripts, maybe this results in a natual parallelization???
+system("R CMD BATCH" ...) # <- calls the unix terminal to run commands. Can use a loop of these commands to run multiple scripts, maybe this results in a natural parallelization???
 
 ##
 ## Moving around in directories 
