@@ -1,4 +1,10 @@
 ##
+## Exporting graphics
+##
+
+jpeg(file = '~/file/path/name.jpeg', width = 6, height = 6, quality = 100, res = 600, units = 'in')
+dev.off()
+##
 ## Easy set-up for snowfall
 ##
 
