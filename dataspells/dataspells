@@ -41,3 +41,12 @@ update.packages()
 ##
 
 head() and tail() ##show the first and last parts of a dataframe, vector, matrix, etc.
+
+##
+## spatial plotting
+##
+
+library(raster)
+library(fields)
+image(rasterObject)
+map(database = 'state', add = TRUE)
