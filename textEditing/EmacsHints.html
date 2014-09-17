@@ -137,6 +137,10 @@ hr {
 
 
 
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 
 
 </head>
@@ -229,6 +233,40 @@ hr {
 <p>C-x b           ## change buffers</p>
 
 <p>C-c C-c         ## compile .tex document</p>
+
+<h2>Mathematics equations</h2>
+
+<p>\begin{align*}</p>
+
+<p>y_j \stackrel{iid} {\sim} N( 0, \sigma<sup>2</sup> )</p>
+
+<p>\end{align*}</p>
+
+<p>\[ 
+\begin{align*}
+y_j \stackrel{iid} {\sim} N(0, {\sigma^2})
+\end{align*}
+ \]</p>
+
+<p>\begin{align*}</p>
+
+<p>\begin{array}{cc} \bm{\Sigma}<em>{It} &amp; \bm{0}\ \bm{0} &amp; \bm{\Sigma}</em>{Pt} \end{array}</p>
+
+<p>\end{align*}</p>
+
+<p>\[ 
+\begin{align*}
+\begin{array}{cc} \boldmath{\Sigma}_{It} & \boldmath{0}\\ \boldmath{0} & \boldmath{\Sigma}_{Pt} \end{array}
+\end{align*}
+ \]</p>
+
+<p>\left[ \beta_j \middle| \sigma<sup>2,</sup> \lambda_j, \gamma_j \right] &amp; \stackrel{iid} {\sim} \begin{cases} 0 &amp; \mbox{if } \gamma_j = 0\ \mbox{N}\left( 0, \frac{\sigma<sup>2}</sup> {\lambda_j} \right) &amp; \mbox{if } \gamma_j = 1 \end{cases}</p>
+
+<p>\[ 
+\begin{align*}
+\left[ \beta_j \middle| \sigma^2, \lambda_j, \gamma_j \right] & \stackrel{iid} {\sim} \begin{cases} 0 & \mbox{if } \gamma_j = 0\\ \mbox{N}\left( 0, \frac{\sigma^2} {\lambda_j} \right) & \mbox{if } \gamma_j = 1 \end{cases}
+\end{align*}
+ \]</p>
 
 </body>
 

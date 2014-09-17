@@ -44,3 +44,9 @@ library(raster)
 library(fields)
 image(rasterObject)
 map(database = 'state', add = TRUE)
+
+##
+## plotting symbols
+##
+
+expression(sigma[beta]^2) ## <- \sigma^2_\beta in latex

@@ -86,3 +86,38 @@ C-x b			## change buffers
 
 C-c C-c  		## compile .tex document
 
+## Mathematics equations
+
+\begin{align*}
+
+y_j \stackrel{iid} {\sim} N( 0, \sigma^2 )
+
+\end{align*}
+
+$$
+\begin{align*}
+y_j \stackrel{iid} {\sim} N(0, {\sigma^2})
+\end{align*}
+$$
+
+\begin{align*}
+
+\begin{array}{cc} \bm{\Sigma}_{It} & \bm{0}\\ \bm{0} & \bm{\Sigma}_{Pt} \end{array}
+
+\end{align*}
+
+$$
+\begin{align*}
+\begin{array}{cc} \boldmath{\Sigma}_{It} & \boldmath{0}\\ \boldmath{0} & \boldmath{\Sigma}_{Pt} \end{array}
+\end{align*}
+$$
+
+
+\left[ \beta_j \middle| \sigma^2, \lambda_j, \gamma_j \right] & \stackrel{iid} {\sim} \begin{cases} 0 & \mbox{if } \gamma_j = 0\\ \mbox{N}\left( 0, \frac{\sigma^2} {\lambda_j} \right) & \mbox{if } \gamma_j = 1 \end{cases}
+
+
+$$
+\begin{align*}
+\left[ \beta_j \middle| \sigma^2, \lambda_j, \gamma_j \right] & \stackrel{iid} {\sim} \begin{cases} 0 & \mbox{if } \gamma_j = 0\\ \mbox{N}\left( 0, \frac{\sigma^2} {\lambda_j} \right) & \mbox{if } \gamma_j = 1 \end{cases}
+\end{align*}
+$$
