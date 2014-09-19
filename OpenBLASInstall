@@ -1,5 +1,5 @@
 #####
-#####  Last Updated: 20130702
+#####  Last Updated: 20140919
 #####  This is to install OpenBLAS instead of the default BLAS (which is super slow) on Apple Computers
 #####
 #####  Backstory:
@@ -12,29 +12,34 @@
 #####  Recently, a new BLAS called openBLAS has revived GotoBLAS and it's relatively easy to install 
 #####  using either homebrew (Devin prefers this, see way below) or just 'make' with Xcode compilers. 
 #####
+
 #####
-##### My Install
+##### My Install - Laptop
+#####
 
 1)  Install latest version of Xcode (from Apple App Store). After Xcode is installed, go to Preferences, Downloads, then Components.  Install Command Line Tools.
 
 2)  Install latest version of R (>3.0). 
 
-3) Clone the openBLAS library
+3) Clone the OpenBLAS library
 
 git clone git://github.com/xianyi/OpenBLAS
 
 
 4) Change directory to OpenBLAS folder
 
-5) Type make in terminal shell
+5) Type make CC=clang FC=/usr/local/bin/gfortran in terminal shell
+## (If you get errors try make clean then try again)
 
 6) Type make PREFIX=~/source/OpenBLAS install 
 
 7) Change directory to ~/source/OpenBLAS/lib
 
 8)  Copy openBLAS to R library folders that contains other BLAS versions"  
-## Note, this file depends on what system. My laptop is an Intel Sandy Bridge process
+## Note, this file depends on what system.
+## My desktop is
 
+## My laptop is an Intel Sandy Bridge process
 cp libopenblas_sandybridgep-r0.2.11.dylib /Library/Frameworks/R.framework/Resources/lib/
 
 9) Change to R library directory:
@@ -52,7 +57,7 @@ ln -sf libopenblas_sandybridgep-r0.2.11.dylib libRblas.dylib
 source("http://r.research.att.com/benchmarks/R-benchmark-25.R")
 
 #####
-#####
+##### My Install - Desktop
 #####
 
 1.)  Install latest version of Xcode (from Apple App Store).  Mine is: 4.6.3.  After Xcode is installed, go to Preferences, Downloads, then Components.  Install Command Line Tools.
@@ -71,8 +76,9 @@ https://github.com/xianyi/OpenBLAS/wiki/download
 5.1/2) Type make PREFIX=~/source/OpenBLAS install 
 
 6.)  Copy openBLAS to R library folders that contains other BLAS versions"  
+## cd ~/source/openBLAS/lib
 
-cp libopenblas_penrynp-r0.2.8.dylib /Library/Frameworks/R.framework/Resources/lib/
+cp libopenblas_penrynp-r0.2.9.rc2.dylib /Library/Frameworks/R.framework/Resources/lib/
 
 7.) Change to R library directory:
 
@@ -80,7 +86,7 @@ cd /Library/Frameworks/R.framework/Resources/lib/
 
 8.)  Use dynamic link to tell R to use openBLAS:
 
-ln -sf libopenblas_penrynp-r0.2.8.dylib libRblas.dylib 
+ln -sf libopenblas_penrynp-r0.2.9.rc2.dylib libRblas.dylib 
 
 9.)  Start R session
 
