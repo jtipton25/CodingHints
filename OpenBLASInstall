@@ -13,6 +13,47 @@
 #####  using either homebrew (Devin prefers this, see way below) or just 'make' with Xcode compilers. 
 #####
 #####
+##### My Install
+
+1)  Install latest version of Xcode (from Apple App Store). After Xcode is installed, go to Preferences, Downloads, then Components.  Install Command Line Tools.
+
+2)  Install latest version of R (>3.0). 
+
+3) Clone the openBLAS library
+
+git clone git://github.com/xianyi/OpenBLAS
+
+
+4) Change directory to OpenBLAS folder
+
+5) Type make in terminal shell
+
+6) Type make PREFIX=~/source/OpenBLAS install 
+
+7) Change directory to ~/source/OpenBLAS/lib
+
+8)  Copy openBLAS to R library folders that contains other BLAS versions"  
+## Note, this file depends on what system. My laptop is an Intel Sandy Bridge process
+
+cp libopenblas_sandybridgep-r0.2.11.dylib /Library/Frameworks/R.framework/Resources/lib/
+
+9) Change to R library directory:
+
+cd /Library/Frameworks/R.framework/Resources/lib/
+
+10)  Use dynamic link to tell R to use openBLAS:
+
+ln -sf libopenblas_sandybridgep-r0.2.11.dylib libRblas.dylib 
+
+11)  Start R session
+
+12)  Run benchmark script:
+
+source("http://r.research.att.com/benchmarks/R-benchmark-25.R")
+
+#####
+#####
+#####
 
 1.)  Install latest version of Xcode (from Apple App Store).  Mine is: 4.6.3.  After Xcode is installed, go to Preferences, Downloads, then Components.  Install Command Line Tools.
 
