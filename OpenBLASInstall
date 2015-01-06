@@ -93,6 +93,7 @@ ln -sf libopenblas_penrynp-r0.2.9.rc2.dylib libRblas.dylib
 10.)  Run benchmark script:
 
 source("http://r.research.att.com/benchmarks/R-benchmark-25.R")
+## about 14 seconds on mac pro desktop
 
 
 #####
